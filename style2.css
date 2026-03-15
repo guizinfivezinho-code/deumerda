@@ -1,0 +1,42 @@
+/* CAPA DO SITE */
+
+.capa{
+height:400px;
+background-image:url("WhatsApp\ Image\ 2026-03-15\ at\ 14.24.48.jpeg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+/* ESCURECER A IMAGEM (efeito profissional) */
+
+.capa::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:400px;
+background:rgba(0,0,0,0.4);
+}
+
+/* TEXTO DA CAPA */
+
+.capa-texto{
+position:relative;
+z-index:2;
+}
+
+.capa-texto h1{
+font-size:50px;
+margin:0;
+}
+
+.capa-texto p{
+font-size:20px;
+margin-top:10px;
+}

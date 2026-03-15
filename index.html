@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Doce Infância</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+height:100vh;
+}
+
+/* CAPA */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(255,120,0,0.85),rgba(255,120,0,0.85)),
+url("WhatsApp Image 2026-03-15 at 14.24.48.jpeg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:70px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:40px;
+}
+
+/* BOTÕES */
+
+.botoes{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:15px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-cardapio{
+background:rgb(160, 86, 1);
+color:#ffffff;
+}
+
+.btn-cardapio:hover{
+transform:scale(1.1);
+}
+
+.btn-whatsapp{
+background:#25D366;
+color:white;
+}
+
+.btn-whatsapp:hover{
+background:#1ebc59;
+transform:scale(1.1);
+}
+
+/* CARDS */
+
+.cards{
+display:flex;
+gap:30px;
+justify-content:center;
+margin-top:60px;
+flex-wrap:wrap;
+}
+
+.card{
+background:rgba(255,255,255,0.2);
+padding:25px;
+border-radius:15px;
+backdrop-filter:blur(5px);
+width:150px;
+}
+
+.card h2{
+font-size:28px;
+}
+
+.card p{
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<div>
+
+<h1>Doce Infância</h1>
+
+<p>
+Bolos e doces artesanais feitos com carinho para tornar seus momentos especiais ainda mais doces.
+</p>
+
+<div class="botoes">
+
+<a href="cardapio.html" class="btn btn-cardapio">
+📜 Ver Cardápio
+</a>
+
+<a href="https://wa.me/5541999100062" class="btn btn-whatsapp">
+📲 Fazer Pedido
+</a>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h2>+500</h2>
+<p>Pedidos Entregues</p>
+</div>
+
+<div class="card">
+<h2>⭐ 4.9</h2>
+<p>Avaliação dos Clientes</p>
+</div>
+
+<div class="card">
+<h2>100%</h2>
+<p>Feito Artesanalmente</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
