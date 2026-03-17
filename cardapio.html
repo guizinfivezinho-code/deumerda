@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cardápio Doce Infância</title>
+
+<style>
+
+/* FUNDO */
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(90deg,#c9def5,#d9a637);
+}
+
+/* TITULO */
+
+h1{
+text-align:center;
+color:#ff6a00;
+margin-top:30px;
+}
+
+/* PESQUISA */
+
+.pesquisa{
+display:block;
+margin:20px auto;
+width:80%;
+max-width:400px;
+padding:12px;
+border-radius:8px;
+border:none;
+font-size:16px;
+}
+
+/* CARDS */
+
+.bolos-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:20px;
+max-width:900px;
+margin:auto;
+}
+
+.bolo{
+background:rgb(250, 208, 237);
+border-radius:12px;
+padding:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+text-align:center;
+transition:0.3s;
+}
+
+.bolo:hover{
+transform:scale(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.bolo img{
+width:100%;
+border-radius:10px;
+}
+
+.bolo button{
+background:#ff7a00;
+color:white;
+border:none;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
+width:100%;
+transition:0.3s;
+}
+
+.bolo button:hover{
+background:#ff5500;
+}
+
+.bolo button.selecionado{
+background:#2196f3;
+}
+
+/* LISTAS */
+
+.lista{
+background:rgb(248, 203, 237);
+margin:25px auto;
+padding:25px;
+border-radius:12px;
+max-width:900px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.lista h2{
+color:#ff6a00;
+}
+
+.lista li{
+list-style:none;
+padding:10px;
+border-bottom:1px solid #eee;
+cursor:pointer;
+transition:0.2s;
+}
+
+.lista li:hover{
+background:#f4f4f4;
+transform:scale(1.02);
+}
+
+.lista li.selecionado{
+background:#2196f3;
+color:white;
+border-radius:6px;
+}
+
+/* BOTÃO WHATSAPP */
+
+.whatsapp{
+display:block;
+width:80%;
+max-width:900px;
+margin:30px auto;
+background:#25D366;
+color:white;
+text-align:center;
+padding:18px;
+font-size:20px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.whatsapp:hover{
+background:#1ebc59;
+transform:scale(1.03);
+}
+
+/* INSTAGRAM */
+
+.instagram{
+position:fixed;
+bottom:20px;
+left:20px;
+background:white;
+border-radius:50%;
+padding:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.instagram:hover{
+transform:scale(1.1);
+}
+
+.instagram img{
+width:35px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎂 Cardápio Doce Infância</h1>
+
+<input class="pesquisa" placeholder="🔎 Pesquisar produto..." onkeyup="buscar(this.value)">
+
+<!-- CARDS -->
+
+<div id="cardapio" class="bolos-grid">
+
+<div class="bolo">
+<img src="bolo1.jpg">
+<h3>Bolo Brigadeiro</h3>
+<p>R$67,90 kg</p>
+<button onclick="selecionar(this,'Bolo Brigadeiro')">Selecionar</button>
+</div>
+
+<div class="bolo">
+<img src="bolo2.jpg">
+<h3>Bolo Ninho com Morango</h3>
+<p>R$69,90 kg</p>
+<button onclick="selecionar(this,'Bolo Ninho com Morango')">Selecionar</button>
+</div>
+
+<div class="bolo">
+<img src="bolo3.jpg">
+<h3>Bolo Red Velvet</h3>
+<p>R$79,90 kg</p>
+<button onclick="selecionar(this,'Bolo Red Velvet')">Selecionar</button>
+</div>
+
+<div class="bolo">
+<img src="bolo4.jpg">
+<h3>Bolo Ferrero Rocher</h3>
+<p>R$91,90 kg</p>
+<button onclick="selecionar(this,'Bolo Ferrero Rocher')">Selecionar</button>
+</div>
+
+</div>
+
+<!-- LISTA DE SABORES DE BOLO -->
+
+<div class="lista">
+
+<h2>🎂 Lista de Sabores de Bolo</h2>
+
+<li onclick="selecionarLista(this,'Bolo Abacaxi com Leite Ninho - 69,90kg')">Bolo Abacaxi com Leite Ninho — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Abacaxi com Suspiro - 69,90kg')">Bolo Abacaxi com Suspiro — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Abacaxi com Creme - 65,90kg')">Bolo Abacaxi com Creme — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Abacaxi com Brigadeiro - 69,90kg')">Bolo Abacaxi com Brigadeiro — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Abacaxi com Coco - 69,90kg')">Bolo Abacaxi com Coco — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Abacaxi com Nata - 79,90kg')">Bolo Abacaxi com Nata — 79,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Alpino - 69,90kg')">Bolo Alpino — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Alpino com Ganache - 75,90kg')">Bolo Alpino com Ganache — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Alpino com Laka - 75,90kg')">Bolo Alpino com Laka — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Alpino com Morango - 69,90kg')">Bolo Alpino com Morango — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Alpino com Leite Ninho - 69,90kg')">Bolo Alpino com Leite Ninho — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Arco-Íris - 69,90kg')">Bolo Arco-Íris — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Butter Cream - 89,90kg')">Bolo Butter Cream — 89,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Beijinho - 65,90kg')">Bolo Beijinho — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Brigadeiro - 67,90kg')">Bolo Brigadeiro — 67,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Brigadeiro Branco com Frutas Vermelhas - 85,90kg')">Bolo Brigadeiro Branco com Frutas Vermelhas — 85,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Brigadeiro com Morango - 69,90kg')">Bolo Brigadeiro com Morango — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Brigadeiro com Morango e Nata - 75,90kg')">Bolo Brigadeiro com Morango e Nata — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Brigadeiro com Ninho - 70,00kg')">Bolo Brigadeiro com Ninho — 70,00kg</li>
+<li onclick="selecionarLista(this,'Bolo Brigadeiro Branco com Limão Siciliano - 71,90kg')">Bolo Brigadeiro Branco com Limão Siciliano — 71,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Brigadeiro com Mousse de Maracujá - 71,90kg')">Bolo Brigadeiro com Mousse de Maracujá — 71,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Bombom de Morango ou Uva - 73,90kg')">Bolo Bombom de Morango ou Uva — 73,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Chantininho - 65,90kg')">Bolo Chantininho — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Chantininho com Morango - 69,90kg')">Bolo Chantininho com Morango — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Charge - 69,90kg')">Bolo Charge — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Cocada Mole com Morango - 69,90kg')">Bolo Cocada Mole com Morango — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Creme de Ovos com Damasco - 80,90kg')">Bolo Creme de Ovos com Damasco — 80,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Crocante de Nozes - 86,90kg')">Bolo Crocante de Nozes — 86,90kg</li>
+<li onclick="selecionarLista(this,'Bolo de Frutas - 69,90kg')">Bolo de Frutas — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo de Frutas com Nata - 75,90kg')">Bolo de Frutas com Nata — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Doce de Leite - 69,90kg')">Bolo Doce de Leite — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Doce de Leite com Ameixa - 73,90kg')">Bolo Doce de Leite com Ameixa — 73,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Doce de Leite e Nozes - 98,90kg')">Bolo Doce de Leite e Nozes — 98,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Doce Infância - 75,90kg')">Bolo Doce Infância — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Dois Amores - 69,90kg')">Bolo Dois Amores — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Dois Amores e Nata - 75,90kg')">Bolo Dois Amores e Nata — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ferrero Rocher - 91,90kg')">Bolo Ferrero Rocher — 91,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ferrero Rocher com Morango - 95,90kg')">Bolo Ferrero Rocher com Morango — 95,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Floresta Negra ou Branca - 85,90kg')">Bolo Floresta Negra ou Branca — 85,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ganache Cake - 89,90kg')">Bolo Ganache Cake — 89,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Kinder Bueno - 120,90kg')">Bolo Kinder Bueno — 120,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Kit Kat - 105,90kg')">Bolo Kit Kat — 105,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Laka - 75,90kg')">Bolo Laka — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Laka com Morango - 78,90kg')">Bolo Laka com Morango — 78,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Laka com Oreo - 78,90kg')">Bolo Laka com Oreo — 78,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Marta Rocha - 78,90kg')">Bolo Marta Rocha — 78,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Marta Rocha com Nata - 85,90kg')">Bolo Marta Rocha com Nata — 85,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Morango com Creme - 65,90kg')">Bolo Morango com Creme — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Morango com Nata - 69,90kg')">Bolo Morango com Nata — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Morango com Suspiro - 69,90kg')">Bolo Morango com Suspiro — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Morango com Suspiro e Nata - 78,90kg')">Bolo Morango com Suspiro e Nata — 78,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Morango com Nutella - 78,90kg')">Bolo Morango com Nutella — 78,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Mousse de Limão - 65,90kg')">Bolo Mousse de Limão — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Mousse de Maracujá - 65,90kg')">Bolo Mousse de Maracujá — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Mousse de Morango - 65,90kg')">Bolo Mousse de Morango — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Mousse de Chocolate - 65,90kg')">Bolo Mousse de Chocolate — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Naked Cake - 85,90kg')">Bolo Naked Cake — 85,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ninho com Morango - 69,90kg')">Bolo Ninho com Morango — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ninho com Morango e Suspiro - 78,90kg')">Bolo Ninho com Morango e Suspiro — 78,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ninho com Nutella - 75,90kg')">Bolo Ninho com Nutella — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ninho com Nutella e Morango - 85,90kg')">Bolo Ninho com Nutella e Morango — 85,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ninho com Oreo - 69,90kg')">Bolo Ninho com Oreo — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ninho com Morango e Nata - 78,90kg')">Bolo Ninho com Morango e Nata — 78,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Olho de Sogra - 69,90kg')">Bolo Olho de Sogra — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Oreo - 72,90kg')">Bolo Oreo — 72,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Oreo com Morango - 75,90kg')">Bolo Oreo com Morango — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ouro Branco - 69,90kg')">Bolo Ouro Branco — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Ouro Branco com Morango - 75,90kg')">Bolo Ouro Branco com Morango — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo em Pasta Americana - 124,90kg')">Bolo em Pasta Americana — 124,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Prestigio - 65,90kg')">Bolo Prestigio — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Prestigio com Brigadeiro - 69,90kg')">Bolo Prestigio com Brigadeiro — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Prestigio com Morango - 69,90kg')">Bolo Prestigio com Morango — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo de Pistache - 130,90kg')">Bolo de Pistache — 130,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Quatro Leites - 65,90kg')">Bolo Quatro Leites — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Quatro Leites com Nata - 73,90kg')">Bolo Quatro Leites com Nata — 73,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Quatro Leites com Morango - 69,90kg')">Bolo Quatro Leites com Morango — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Raffaello - 75,90kg')">Bolo Raffaello — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Red Velvet - 79,90kg')">Bolo Red Velvet — 79,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Strogonoff de Nozes - 110,00kg')">Bolo Strogonoff de Nozes — 110,00kg</li>
+<li onclick="selecionarLista(this,'Bolo Sensação - 65,90kg')">Bolo Sensação — 65,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Sonho de Valsa - 69,90kg')">Bolo Sonho de Valsa — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Sonho de Valsa com Morango - 75,90kg')">Bolo Sonho de Valsa com Morango — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Surpresa de Uva - 69,90kg')">Bolo Surpresa de Uva — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Surpresa de Uva com Morango - 75,90kg')">Bolo Surpresa de Uva com Morango — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Tentação de Morango - 75,90kg')">Bolo Tentação de Morango — 75,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Três Amores - 69,90kg')">Bolo Três Amores — 69,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Trufa de Maracujá com Brigadeiro - 79,90kg')">Bolo Trufa de Maracujá com Brigadeiro — 79,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Trufa de Chocolate - 79,90kg')">Bolo Trufa de Chocolate — 79,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Trufa de Limão - 79,90kg')">Bolo Trufa de Limão — 79,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Trufa de Morango - 79,90kg')">Bolo Trufa de Morango — 79,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Trufa de Maracujá - 79,90kg')">Bolo Trufa de Maracujá — 79,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Diet - 150,00kg')">Bolo Diet — 150,00kg</li>
+<li onclick="selecionarLista(this,'Bolo Sem Gluten - 89,90kg')">Bolo Sem Gluten — 89,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Sem Lactose - 150,90kg')">Bolo Sem Lactose — 150,90kg</li>
+<li onclick="selecionarLista(this,'Bolo Zero Enzima do Leite - 180,90kg')">Bolo Zero Enzima do Leite — 180,90kg</li>
+
+<p>🛑 Observação: artes em topper, papel arroz, balões e pasta americana são cobrados à parte.</p>
+<p>💳 Pagamento: Dinheiro, Pix, Débito e Crédito.</p>
+
+</div>
+
+<p>🛑 Observação: artes em topper, papel arroz, balões e pasta americana são cobrados à parte.</p>
+<p>💳 Pagamento: Dinheiro, Pix, Débito e Crédito.</p>
+
+</div>
+
+<!-- DOCES -->
+
+<div class="lista">
+
+<h2>🍬 Doces Tradicionais</h2>
+
+<li onclick="selecionarLista(this,'Brigadeiro')">Brigadeiro</li>
+<li onclick="selecionarLista(this,'Dois Amores')">Dois Amores</li>
+<li onclick="selecionarLista(this,'Beijinho')">Beijinho</li>
+<li onclick="selecionarLista(this,'Ninho')">Ninho</li>
+<li onclick="selecionarLista(this,'Oreo')">Oreo</li>
+<li onclick="selecionarLista(this,'Cajuzinho')">Cajuzinho</li>
+<li onclick="selecionarLista(this,'Moranguinho')">Moranguinho</li>
+<li onclick="selecionarLista(this,'Strogonoff amendoim')">Strogonoff amendoim</li>
+<li onclick="selecionarLista(this,'Crespinho')">Crespinho</li>
+
+<p>Doces 10g — R$120 o cento</p>
+<p>Doces 17g — R$190 o cento</p>
+
+</div>
+
+<!-- SALGADOS -->
+
+<div class="lista">
+
+<h2>🥟 Salgados Fritos</h2>
+
+<li onclick="selecionarLista(this,'Coxinha')">Coxinha</li>
+<li onclick="selecionarLista(this,'Bolinha de queijo')">Bolinha de queijo</li>
+<li onclick="selecionarLista(this,'Kibe')">Kibe</li>
+<li onclick="selecionarLista(this,'Risoles')">Risoles</li>
+<li onclick="selecionarLista(this,'Croquete queijo e presunto')">Croquete queijo e presunto</li>
+<li onclick="selecionarLista(this,'Enroladinho vina')">Enroladinho vina</li>
+<li onclick="selecionarLista(this,'Bolinho de carne com queijo')">Bolinho de carne com queijo</li>
+
+</div>
+
+<!-- WHATSAPP -->
+
+<div class="whatsapp" onclick="enviarPedido()">
+📲 Fazer Pedido no WhatsApp
+</div>
+
+<!-- INSTAGRAM -->
+
+<a class="instagram" href="https://instagram.com/doceinfanciaconfeitariacwb" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+
+<script>
+
+let carrinho=[]
+
+function selecionar(botao,produto){
+
+botao.classList.toggle("selecionado")
+
+if(carrinho.includes(produto)){
+carrinho=carrinho.filter(item=>item!==produto)
+}else{
+carrinho.push(produto)
+}
+
+}
+
+function selecionarLista(item,produto){
+
+item.classList.toggle("selecionado")
+
+if(carrinho.includes(produto)){
+carrinho=carrinho.filter(p=>p!==produto)
+}else{
+carrinho.push(produto)
+}
+
+}
+
+function enviarPedido(){
+
+let numero="5541999100062"
+
+let mensagem="Olá, gostaria de fazer o seguinte pedido:%0A%0A"
+
+carrinho.forEach(item=>{
+mensagem+="• "+item+"%0A"
+})
+
+window.open("https://wa.me/"+numero+"?text="+mensagem)
+
+}
+
+function buscar(texto){
+
+texto=texto.toLowerCase()
+
+let itens=document.querySelectorAll("li,.bolo")
+
+itens.forEach(item=>{
+
+let nome=item.innerText.toLowerCase()
+
+if(nome.includes(texto)){
+item.style.display="block"
+}else{
+item.style.display="none"
+}
+
+})
+
+}
+
+</script>
+
+</body>
+</html>
